@@ -1,0 +1,19 @@
+/run/verbose 2
+/run/initialize
+/control/execute vis2.mac
+/vis/open OGL 600x600-0+0
+/vis/sceneHandler/create OGL
+/vis/viewer/create ! ! 600x600-0+0
+/vis/viewer/refresh
+/vis/drawVolume
+/vis/scene/create
+/vis/scene/add/volume world -1 -1 none m 0 0 0 0 0 0
+/vis/sceneHandler/attach
+/vis/scene/add/scale
+/vis/scene/notifyHandlers
+/vis/scene/add/axes
+/vis/scene/notifyHandlers
+/vis/geometry/set/visibility World 0 false
+/vis/scene/notifyHandlers
+/vis/viewer/set/style surface
+/vis/viewer/refresh

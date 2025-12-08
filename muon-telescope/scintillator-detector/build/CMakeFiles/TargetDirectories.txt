@@ -1,0 +1,8 @@
+/home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/build/CMakeFiles/exampleB1.dir
+/home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/build/CMakeFiles/B1.dir
+/home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/build/CMakeFiles/edit_cache.dir
+/home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/build/CMakeFiles/rebuild_cache.dir
+/home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/build/CMakeFiles/list_install_components.dir
+/home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/build/CMakeFiles/install.dir
+/home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/build/CMakeFiles/install/local.dir
+/home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/build/CMakeFiles/install/strip.dir
