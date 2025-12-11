@@ -253,9 +253,15 @@ CMakeFiles/exampleB1.dir/exampleB1.cc.o: \
  /media/software/hep/g4_install_single_threaded/include/Geant4/CLHEP/Vector/RotationZ.h \
  /media/software/hep/g4_install_single_threaded/include/Geant4/CLHEP/Vector/RotationZ.icc \
  /media/software/hep/g4_install_single_threaded/include/Geant4/CLHEP/Vector/Rotation.icc \
- /media/software/hep/g4_install_single_threaded/include/Geant4/G4RunManagerFactory.hh \
- /media/software/hep/g4_install_single_threaded/include/Geant4/G4MTRunManager.hh \
- /media/software/hep/g4_install_single_threaded/include/Geant4/G4MTBarrier.hh \
+ /home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/include/ActionInitialization.hh \
+ /media/software/hep/g4_install_single_threaded/include/Geant4/G4VUserActionInitialization.hh \
+ /home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/include/PrimaryGeneratorAction.hh \
+ /media/software/hep/g4_install_single_threaded/include/Geant4/G4VUserPrimaryGeneratorAction.hh \
+ /media/software/hep/g4_install_single_threaded/include/Geant4/G4ParticleGun.hh \
+ /media/software/hep/g4_install_single_threaded/include/Geant4/G4VPrimaryGenerator.hh \
+ /media/software/hep/g4_install_single_threaded/include/Geant4/G4ParticleDefinition.hh \
+ /media/software/hep/g4_install_single_threaded/include/Geant4/G4PDefManager.hh \
+ /media/software/hep/g4_install_single_threaded/include/Geant4/G4AutoLock.hh \
  /media/software/hep/g4_install_single_threaded/include/Geant4/G4Threading.hh \
  /usr/include/c++/13/chrono /usr/include/c++/13/condition_variable \
  /usr/include/c++/13/bits/shared_ptr.h \
@@ -269,6 +275,18 @@ CMakeFiles/exampleB1.dir/exampleB1.cc.o: \
  /usr/include/c++/13/bits/std_function.h \
  /usr/include/c++/13/bits/std_thread.h /usr/include/c++/13/thread \
  /usr/include/c++/13/bits/this_thread_sleep.h \
+ /media/software/hep/g4_install_single_threaded/include/Geant4/pwdefs.hh \
+ /usr/include/c++/13/stdlib.h \
+ /media/software/hep/g4_install_single_threaded/include/Geant4/G4ParticleDefinition.icc \
+ /media/software/hep/g4_install_single_threaded/include/Geant4/G4PrimaryVertex.hh \
+ /media/software/hep/g4_install_single_threaded/include/Geant4/G4Allocator.hh \
+ /media/software/hep/g4_install_single_threaded/include/Geant4/G4AllocatorPool.hh \
+ /media/software/hep/g4_install_single_threaded/include/Geant4/G4PrimaryParticle.hh \
+ /media/software/hep/g4_install_single_threaded/include/Geant4/G4ParticleMomentum.hh \
+ /media/software/hep/g4_install_single_threaded/include/Geant4/G4ThreeVector.hh \
+ /media/software/hep/g4_install_single_threaded/include/Geant4/G4RunManagerFactory.hh \
+ /media/software/hep/g4_install_single_threaded/include/Geant4/G4MTRunManager.hh \
+ /media/software/hep/g4_install_single_threaded/include/Geant4/G4MTBarrier.hh \
  /media/software/hep/g4_install_single_threaded/include/Geant4/G4RNGHelper.hh \
  /usr/include/c++/13/queue /usr/include/c++/13/deque \
  /usr/include/c++/13/bits/stl_deque.h /usr/include/c++/13/bits/deque.tcc \
@@ -278,11 +296,6 @@ CMakeFiles/exampleB1.dir/exampleB1.cc.o: \
  /usr/include/c++/13/set /usr/include/c++/13/bits/stl_set.h \
  /usr/include/c++/13/bits/stl_multiset.h \
  /media/software/hep/g4_install_single_threaded/include/Geant4/evtdefs.hh \
- /media/software/hep/g4_install_single_threaded/include/Geant4/G4Allocator.hh \
- /media/software/hep/g4_install_single_threaded/include/Geant4/G4AllocatorPool.hh \
- /media/software/hep/g4_install_single_threaded/include/Geant4/G4PrimaryVertex.hh \
- /media/software/hep/g4_install_single_threaded/include/Geant4/G4PrimaryParticle.hh \
- /media/software/hep/g4_install_single_threaded/include/Geant4/pwdefs.hh \
  /media/software/hep/g4_install_single_threaded/include/Geant4/G4HCofThisEvent.hh \
  /media/software/hep/g4_install_single_threaded/include/Geant4/G4VHitsCollection.hh \
  /media/software/hep/g4_install_single_threaded/include/Geant4/G4DCofThisEvent.hh \
@@ -312,7 +325,6 @@ CMakeFiles/exampleB1.dir/exampleB1.cc.o: \
  /media/software/hep/g4_install_single_threaded/include/Geant4/G4Region.hh \
  /media/software/hep/g4_install_single_threaded/include/Geant4/G4GeomSplitter.hh \
  /media/software/hep/g4_install_single_threaded/include/Geant4/geomwdefs.hh \
- /media/software/hep/g4_install_single_threaded/include/Geant4/G4AutoLock.hh \
  /media/software/hep/g4_install_single_threaded/include/Geant4/G4Region.icc \
  /media/software/hep/g4_install_single_threaded/include/Geant4/G4VPhysicalVolume.hh \
  /media/software/hep/g4_install_single_threaded/include/Geant4/geomdefs.hh \
@@ -323,11 +335,6 @@ CMakeFiles/exampleB1.dir/exampleB1.cc.o: \
  /media/software/hep/g4_install_single_threaded/include/Geant4/G4ElectronOccupancy.hh \
  /media/software/hep/g4_install_single_threaded/include/Geant4/G4Log.hh \
  /media/software/hep/g4_install_single_threaded/include/Geant4/G4LorentzVector.hh \
- /media/software/hep/g4_install_single_threaded/include/Geant4/G4ParticleDefinition.hh \
- /media/software/hep/g4_install_single_threaded/include/Geant4/G4PDefManager.hh \
- /usr/include/c++/13/stdlib.h \
- /media/software/hep/g4_install_single_threaded/include/Geant4/G4ParticleDefinition.icc \
- /media/software/hep/g4_install_single_threaded/include/Geant4/G4ParticleMomentum.hh \
  /media/software/hep/g4_install_single_threaded/include/Geant4/G4DynamicParticle.icc \
  /media/software/hep/g4_install_single_threaded/include/Geant4/G4TrackStatus.hh \
  /media/software/hep/g4_install_single_threaded/include/Geant4/G4TouchableHandle.hh \

@@ -211,6 +211,30 @@ exampleB1.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleB1.dir/build.make CMakeFiles/exampleB1.dir/exampleB1.cc.s
 .PHONY : exampleB1.cc.s
 
+src/ActionInitialization.o: src/ActionInitialization.cc.o
+.PHONY : src/ActionInitialization.o
+
+# target to build an object file
+src/ActionInitialization.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleB1.dir/build.make CMakeFiles/exampleB1.dir/src/ActionInitialization.cc.o
+.PHONY : src/ActionInitialization.cc.o
+
+src/ActionInitialization.i: src/ActionInitialization.cc.i
+.PHONY : src/ActionInitialization.i
+
+# target to preprocess a source file
+src/ActionInitialization.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleB1.dir/build.make CMakeFiles/exampleB1.dir/src/ActionInitialization.cc.i
+.PHONY : src/ActionInitialization.cc.i
+
+src/ActionInitialization.s: src/ActionInitialization.cc.s
+.PHONY : src/ActionInitialization.s
+
+# target to generate assembly for a file
+src/ActionInitialization.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleB1.dir/build.make CMakeFiles/exampleB1.dir/src/ActionInitialization.cc.s
+.PHONY : src/ActionInitialization.cc.s
+
 src/DetectorConstruction.o: src/DetectorConstruction.cc.o
 .PHONY : src/DetectorConstruction.o
 
@@ -235,6 +259,30 @@ src/DetectorConstruction.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleB1.dir/build.make CMakeFiles/exampleB1.dir/src/DetectorConstruction.cc.s
 .PHONY : src/DetectorConstruction.cc.s
 
+src/EventAction.o: src/EventAction.cc.o
+.PHONY : src/EventAction.o
+
+# target to build an object file
+src/EventAction.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleB1.dir/build.make CMakeFiles/exampleB1.dir/src/EventAction.cc.o
+.PHONY : src/EventAction.cc.o
+
+src/EventAction.i: src/EventAction.cc.i
+.PHONY : src/EventAction.i
+
+# target to preprocess a source file
+src/EventAction.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleB1.dir/build.make CMakeFiles/exampleB1.dir/src/EventAction.cc.i
+.PHONY : src/EventAction.cc.i
+
+src/EventAction.s: src/EventAction.cc.s
+.PHONY : src/EventAction.s
+
+# target to generate assembly for a file
+src/EventAction.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleB1.dir/build.make CMakeFiles/exampleB1.dir/src/EventAction.cc.s
+.PHONY : src/EventAction.cc.s
+
 src/Layer.o: src/Layer.cc.o
 .PHONY : src/Layer.o
 
@@ -258,6 +306,78 @@ src/Layer.s: src/Layer.cc.s
 src/Layer.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleB1.dir/build.make CMakeFiles/exampleB1.dir/src/Layer.cc.s
 .PHONY : src/Layer.cc.s
+
+src/PrimaryGeneratorAction.o: src/PrimaryGeneratorAction.cc.o
+.PHONY : src/PrimaryGeneratorAction.o
+
+# target to build an object file
+src/PrimaryGeneratorAction.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleB1.dir/build.make CMakeFiles/exampleB1.dir/src/PrimaryGeneratorAction.cc.o
+.PHONY : src/PrimaryGeneratorAction.cc.o
+
+src/PrimaryGeneratorAction.i: src/PrimaryGeneratorAction.cc.i
+.PHONY : src/PrimaryGeneratorAction.i
+
+# target to preprocess a source file
+src/PrimaryGeneratorAction.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleB1.dir/build.make CMakeFiles/exampleB1.dir/src/PrimaryGeneratorAction.cc.i
+.PHONY : src/PrimaryGeneratorAction.cc.i
+
+src/PrimaryGeneratorAction.s: src/PrimaryGeneratorAction.cc.s
+.PHONY : src/PrimaryGeneratorAction.s
+
+# target to generate assembly for a file
+src/PrimaryGeneratorAction.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleB1.dir/build.make CMakeFiles/exampleB1.dir/src/PrimaryGeneratorAction.cc.s
+.PHONY : src/PrimaryGeneratorAction.cc.s
+
+src/RunAction.o: src/RunAction.cc.o
+.PHONY : src/RunAction.o
+
+# target to build an object file
+src/RunAction.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleB1.dir/build.make CMakeFiles/exampleB1.dir/src/RunAction.cc.o
+.PHONY : src/RunAction.cc.o
+
+src/RunAction.i: src/RunAction.cc.i
+.PHONY : src/RunAction.i
+
+# target to preprocess a source file
+src/RunAction.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleB1.dir/build.make CMakeFiles/exampleB1.dir/src/RunAction.cc.i
+.PHONY : src/RunAction.cc.i
+
+src/RunAction.s: src/RunAction.cc.s
+.PHONY : src/RunAction.s
+
+# target to generate assembly for a file
+src/RunAction.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleB1.dir/build.make CMakeFiles/exampleB1.dir/src/RunAction.cc.s
+.PHONY : src/RunAction.cc.s
+
+src/SteppingAction.o: src/SteppingAction.cc.o
+.PHONY : src/SteppingAction.o
+
+# target to build an object file
+src/SteppingAction.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleB1.dir/build.make CMakeFiles/exampleB1.dir/src/SteppingAction.cc.o
+.PHONY : src/SteppingAction.cc.o
+
+src/SteppingAction.i: src/SteppingAction.cc.i
+.PHONY : src/SteppingAction.i
+
+# target to preprocess a source file
+src/SteppingAction.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleB1.dir/build.make CMakeFiles/exampleB1.dir/src/SteppingAction.cc.i
+.PHONY : src/SteppingAction.cc.i
+
+src/SteppingAction.s: src/SteppingAction.cc.s
+.PHONY : src/SteppingAction.s
+
+# target to generate assembly for a file
+src/SteppingAction.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleB1.dir/build.make CMakeFiles/exampleB1.dir/src/SteppingAction.cc.s
+.PHONY : src/SteppingAction.cc.s
 
 src/TriangularBar.o: src/TriangularBar.cc.o
 .PHONY : src/TriangularBar.o
@@ -300,12 +420,27 @@ help:
 	@echo "... exampleB1.o"
 	@echo "... exampleB1.i"
 	@echo "... exampleB1.s"
+	@echo "... src/ActionInitialization.o"
+	@echo "... src/ActionInitialization.i"
+	@echo "... src/ActionInitialization.s"
 	@echo "... src/DetectorConstruction.o"
 	@echo "... src/DetectorConstruction.i"
 	@echo "... src/DetectorConstruction.s"
+	@echo "... src/EventAction.o"
+	@echo "... src/EventAction.i"
+	@echo "... src/EventAction.s"
 	@echo "... src/Layer.o"
 	@echo "... src/Layer.i"
 	@echo "... src/Layer.s"
+	@echo "... src/PrimaryGeneratorAction.o"
+	@echo "... src/PrimaryGeneratorAction.i"
+	@echo "... src/PrimaryGeneratorAction.s"
+	@echo "... src/RunAction.o"
+	@echo "... src/RunAction.i"
+	@echo "... src/RunAction.s"
+	@echo "... src/SteppingAction.o"
+	@echo "... src/SteppingAction.i"
+	@echo "... src/SteppingAction.s"
 	@echo "... src/TriangularBar.o"
 	@echo "... src/TriangularBar.i"
 	@echo "... src/TriangularBar.s"

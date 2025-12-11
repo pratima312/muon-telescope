@@ -83,10 +83,24 @@ CMakeFiles/exampleB1.dir/exampleB1.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/exampleB1.dir/exampleB1.cc.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/exampleB1.cc -o CMakeFiles/exampleB1.dir/exampleB1.cc.s
 
+CMakeFiles/exampleB1.dir/src/ActionInitialization.cc.o: CMakeFiles/exampleB1.dir/flags.make
+CMakeFiles/exampleB1.dir/src/ActionInitialization.cc.o: /home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/ActionInitialization.cc
+CMakeFiles/exampleB1.dir/src/ActionInitialization.cc.o: CMakeFiles/exampleB1.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/exampleB1.dir/src/ActionInitialization.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/exampleB1.dir/src/ActionInitialization.cc.o -MF CMakeFiles/exampleB1.dir/src/ActionInitialization.cc.o.d -o CMakeFiles/exampleB1.dir/src/ActionInitialization.cc.o -c /home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/ActionInitialization.cc
+
+CMakeFiles/exampleB1.dir/src/ActionInitialization.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/exampleB1.dir/src/ActionInitialization.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/ActionInitialization.cc > CMakeFiles/exampleB1.dir/src/ActionInitialization.cc.i
+
+CMakeFiles/exampleB1.dir/src/ActionInitialization.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/exampleB1.dir/src/ActionInitialization.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/ActionInitialization.cc -o CMakeFiles/exampleB1.dir/src/ActionInitialization.cc.s
+
 CMakeFiles/exampleB1.dir/src/DetectorConstruction.cc.o: CMakeFiles/exampleB1.dir/flags.make
 CMakeFiles/exampleB1.dir/src/DetectorConstruction.cc.o: /home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/DetectorConstruction.cc
 CMakeFiles/exampleB1.dir/src/DetectorConstruction.cc.o: CMakeFiles/exampleB1.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/exampleB1.dir/src/DetectorConstruction.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/exampleB1.dir/src/DetectorConstruction.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/exampleB1.dir/src/DetectorConstruction.cc.o -MF CMakeFiles/exampleB1.dir/src/DetectorConstruction.cc.o.d -o CMakeFiles/exampleB1.dir/src/DetectorConstruction.cc.o -c /home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/DetectorConstruction.cc
 
 CMakeFiles/exampleB1.dir/src/DetectorConstruction.cc.i: cmake_force
@@ -97,10 +111,24 @@ CMakeFiles/exampleB1.dir/src/DetectorConstruction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/exampleB1.dir/src/DetectorConstruction.cc.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/DetectorConstruction.cc -o CMakeFiles/exampleB1.dir/src/DetectorConstruction.cc.s
 
+CMakeFiles/exampleB1.dir/src/EventAction.cc.o: CMakeFiles/exampleB1.dir/flags.make
+CMakeFiles/exampleB1.dir/src/EventAction.cc.o: /home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/EventAction.cc
+CMakeFiles/exampleB1.dir/src/EventAction.cc.o: CMakeFiles/exampleB1.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/exampleB1.dir/src/EventAction.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/exampleB1.dir/src/EventAction.cc.o -MF CMakeFiles/exampleB1.dir/src/EventAction.cc.o.d -o CMakeFiles/exampleB1.dir/src/EventAction.cc.o -c /home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/EventAction.cc
+
+CMakeFiles/exampleB1.dir/src/EventAction.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/exampleB1.dir/src/EventAction.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/EventAction.cc > CMakeFiles/exampleB1.dir/src/EventAction.cc.i
+
+CMakeFiles/exampleB1.dir/src/EventAction.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/exampleB1.dir/src/EventAction.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/EventAction.cc -o CMakeFiles/exampleB1.dir/src/EventAction.cc.s
+
 CMakeFiles/exampleB1.dir/src/Layer.cc.o: CMakeFiles/exampleB1.dir/flags.make
 CMakeFiles/exampleB1.dir/src/Layer.cc.o: /home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/Layer.cc
 CMakeFiles/exampleB1.dir/src/Layer.cc.o: CMakeFiles/exampleB1.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/exampleB1.dir/src/Layer.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/exampleB1.dir/src/Layer.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/exampleB1.dir/src/Layer.cc.o -MF CMakeFiles/exampleB1.dir/src/Layer.cc.o.d -o CMakeFiles/exampleB1.dir/src/Layer.cc.o -c /home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/Layer.cc
 
 CMakeFiles/exampleB1.dir/src/Layer.cc.i: cmake_force
@@ -111,10 +139,52 @@ CMakeFiles/exampleB1.dir/src/Layer.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/exampleB1.dir/src/Layer.cc.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/Layer.cc -o CMakeFiles/exampleB1.dir/src/Layer.cc.s
 
+CMakeFiles/exampleB1.dir/src/PrimaryGeneratorAction.cc.o: CMakeFiles/exampleB1.dir/flags.make
+CMakeFiles/exampleB1.dir/src/PrimaryGeneratorAction.cc.o: /home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/PrimaryGeneratorAction.cc
+CMakeFiles/exampleB1.dir/src/PrimaryGeneratorAction.cc.o: CMakeFiles/exampleB1.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/exampleB1.dir/src/PrimaryGeneratorAction.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/exampleB1.dir/src/PrimaryGeneratorAction.cc.o -MF CMakeFiles/exampleB1.dir/src/PrimaryGeneratorAction.cc.o.d -o CMakeFiles/exampleB1.dir/src/PrimaryGeneratorAction.cc.o -c /home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/PrimaryGeneratorAction.cc
+
+CMakeFiles/exampleB1.dir/src/PrimaryGeneratorAction.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/exampleB1.dir/src/PrimaryGeneratorAction.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/PrimaryGeneratorAction.cc > CMakeFiles/exampleB1.dir/src/PrimaryGeneratorAction.cc.i
+
+CMakeFiles/exampleB1.dir/src/PrimaryGeneratorAction.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/exampleB1.dir/src/PrimaryGeneratorAction.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/PrimaryGeneratorAction.cc -o CMakeFiles/exampleB1.dir/src/PrimaryGeneratorAction.cc.s
+
+CMakeFiles/exampleB1.dir/src/RunAction.cc.o: CMakeFiles/exampleB1.dir/flags.make
+CMakeFiles/exampleB1.dir/src/RunAction.cc.o: /home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/RunAction.cc
+CMakeFiles/exampleB1.dir/src/RunAction.cc.o: CMakeFiles/exampleB1.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/exampleB1.dir/src/RunAction.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/exampleB1.dir/src/RunAction.cc.o -MF CMakeFiles/exampleB1.dir/src/RunAction.cc.o.d -o CMakeFiles/exampleB1.dir/src/RunAction.cc.o -c /home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/RunAction.cc
+
+CMakeFiles/exampleB1.dir/src/RunAction.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/exampleB1.dir/src/RunAction.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/RunAction.cc > CMakeFiles/exampleB1.dir/src/RunAction.cc.i
+
+CMakeFiles/exampleB1.dir/src/RunAction.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/exampleB1.dir/src/RunAction.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/RunAction.cc -o CMakeFiles/exampleB1.dir/src/RunAction.cc.s
+
+CMakeFiles/exampleB1.dir/src/SteppingAction.cc.o: CMakeFiles/exampleB1.dir/flags.make
+CMakeFiles/exampleB1.dir/src/SteppingAction.cc.o: /home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/SteppingAction.cc
+CMakeFiles/exampleB1.dir/src/SteppingAction.cc.o: CMakeFiles/exampleB1.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/exampleB1.dir/src/SteppingAction.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/exampleB1.dir/src/SteppingAction.cc.o -MF CMakeFiles/exampleB1.dir/src/SteppingAction.cc.o.d -o CMakeFiles/exampleB1.dir/src/SteppingAction.cc.o -c /home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/SteppingAction.cc
+
+CMakeFiles/exampleB1.dir/src/SteppingAction.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/exampleB1.dir/src/SteppingAction.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/SteppingAction.cc > CMakeFiles/exampleB1.dir/src/SteppingAction.cc.i
+
+CMakeFiles/exampleB1.dir/src/SteppingAction.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/exampleB1.dir/src/SteppingAction.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/SteppingAction.cc -o CMakeFiles/exampleB1.dir/src/SteppingAction.cc.s
+
 CMakeFiles/exampleB1.dir/src/TriangularBar.cc.o: CMakeFiles/exampleB1.dir/flags.make
 CMakeFiles/exampleB1.dir/src/TriangularBar.cc.o: /home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/TriangularBar.cc
 CMakeFiles/exampleB1.dir/src/TriangularBar.cc.o: CMakeFiles/exampleB1.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/exampleB1.dir/src/TriangularBar.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/exampleB1.dir/src/TriangularBar.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/exampleB1.dir/src/TriangularBar.cc.o -MF CMakeFiles/exampleB1.dir/src/TriangularBar.cc.o.d -o CMakeFiles/exampleB1.dir/src/TriangularBar.cc.o -c /home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/TriangularBar.cc
 
 CMakeFiles/exampleB1.dir/src/TriangularBar.cc.i: cmake_force
@@ -128,16 +198,26 @@ CMakeFiles/exampleB1.dir/src/TriangularBar.cc.s: cmake_force
 # Object files for target exampleB1
 exampleB1_OBJECTS = \
 "CMakeFiles/exampleB1.dir/exampleB1.cc.o" \
+"CMakeFiles/exampleB1.dir/src/ActionInitialization.cc.o" \
 "CMakeFiles/exampleB1.dir/src/DetectorConstruction.cc.o" \
+"CMakeFiles/exampleB1.dir/src/EventAction.cc.o" \
 "CMakeFiles/exampleB1.dir/src/Layer.cc.o" \
+"CMakeFiles/exampleB1.dir/src/PrimaryGeneratorAction.cc.o" \
+"CMakeFiles/exampleB1.dir/src/RunAction.cc.o" \
+"CMakeFiles/exampleB1.dir/src/SteppingAction.cc.o" \
 "CMakeFiles/exampleB1.dir/src/TriangularBar.cc.o"
 
 # External object files for target exampleB1
 exampleB1_EXTERNAL_OBJECTS =
 
 exampleB1: CMakeFiles/exampleB1.dir/exampleB1.cc.o
+exampleB1: CMakeFiles/exampleB1.dir/src/ActionInitialization.cc.o
 exampleB1: CMakeFiles/exampleB1.dir/src/DetectorConstruction.cc.o
+exampleB1: CMakeFiles/exampleB1.dir/src/EventAction.cc.o
 exampleB1: CMakeFiles/exampleB1.dir/src/Layer.cc.o
+exampleB1: CMakeFiles/exampleB1.dir/src/PrimaryGeneratorAction.cc.o
+exampleB1: CMakeFiles/exampleB1.dir/src/RunAction.cc.o
+exampleB1: CMakeFiles/exampleB1.dir/src/SteppingAction.cc.o
 exampleB1: CMakeFiles/exampleB1.dir/src/TriangularBar.cc.o
 exampleB1: CMakeFiles/exampleB1.dir/build.make
 exampleB1: /media/software/hep/g4_install_single_threaded/lib/libG4Tree.so
@@ -181,7 +261,7 @@ exampleB1: /media/software/hep/g4_install_single_threaded/lib/libG4global.so
 exampleB1: /media/software/hep/g4_install_single_threaded/lib/libG4clhep.so
 exampleB1: /media/software/hep/g4_install_single_threaded/lib/libG4ptl.so.3.0.0
 exampleB1: CMakeFiles/exampleB1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable exampleB1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable exampleB1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/exampleB1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
