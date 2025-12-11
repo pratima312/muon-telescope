@@ -9,8 +9,13 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/exampleB1.cc" "CMakeFiles/exampleB1.dir/exampleB1.cc.o" "gcc" "CMakeFiles/exampleB1.dir/exampleB1.cc.o.d"
+  "/home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/ActionInitialization.cc" "CMakeFiles/exampleB1.dir/src/ActionInitialization.cc.o" "gcc" "CMakeFiles/exampleB1.dir/src/ActionInitialization.cc.o.d"
   "/home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/DetectorConstruction.cc" "CMakeFiles/exampleB1.dir/src/DetectorConstruction.cc.o" "gcc" "CMakeFiles/exampleB1.dir/src/DetectorConstruction.cc.o.d"
+  "/home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/EventAction.cc" "CMakeFiles/exampleB1.dir/src/EventAction.cc.o" "gcc" "CMakeFiles/exampleB1.dir/src/EventAction.cc.o.d"
   "/home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/Layer.cc" "CMakeFiles/exampleB1.dir/src/Layer.cc.o" "gcc" "CMakeFiles/exampleB1.dir/src/Layer.cc.o.d"
+  "/home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/PrimaryGeneratorAction.cc" "CMakeFiles/exampleB1.dir/src/PrimaryGeneratorAction.cc.o" "gcc" "CMakeFiles/exampleB1.dir/src/PrimaryGeneratorAction.cc.o.d"
+  "/home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/RunAction.cc" "CMakeFiles/exampleB1.dir/src/RunAction.cc.o" "gcc" "CMakeFiles/exampleB1.dir/src/RunAction.cc.o.d"
+  "/home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/SteppingAction.cc" "CMakeFiles/exampleB1.dir/src/SteppingAction.cc.o" "gcc" "CMakeFiles/exampleB1.dir/src/SteppingAction.cc.o.d"
   "/home/pratima/geant4-tutorials/muon-telescope/scintillator-detector/src/TriangularBar.cc" "CMakeFiles/exampleB1.dir/src/TriangularBar.cc.o" "gcc" "CMakeFiles/exampleB1.dir/src/TriangularBar.cc.o.d"
   )
 
