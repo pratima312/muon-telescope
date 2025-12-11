@@ -5,6 +5,7 @@
 #include "G4VisAttributes.hh"    // For visualization
 #include "G4String.hh"
 #include "G4NistManager.hh"
+#include "G4ios.hh"
 
 
 TriangularBar::TriangularBar(G4Material* material,
@@ -13,12 +14,23 @@ TriangularBar::TriangularBar(G4Material* material,
                              G4double length,
                              G4RotationMatrix* rotation)
                              
-    : fWidth(width), fHeight(height), fLength(length), fMaterial(material), fRotation(rotation)  
+    : fWidth(width), fHeight(height), fLength(length), fMaterial(material), fRotation(rotation),
+      fSolid(nullptr), fLogicalVolume(nullptr), fPhysicalVolume(nullptr)
+
+      
 {
     // Initialize pointers
-    fSolid = nullptr;
-    fLogicalVolume = nullptr;
-    fPhysicalVolume = nullptr;
+    // fSolid = nullptr;
+    // fLogicalVolume = nullptr;
+    // fPhysicalVolume = nullptr; 
+
+    if (!fMaterial) {
+        G4NistManager* nist = G4NistManager::Instance();
+        fMaterial = nist->FindOrBuildMaterial("G4_WATER");
+    }
+
+    // G4NistManager* nist = G4NistManager::Instance();
+    // G4Material* barMaterial = nist->FindOrBuildMaterial("G4_WATER"); 
     
     fSolid = new G4Trd("TriangularBarSolid",
                        fWidth/2*mm,        // Half X at -z (16.5 mm)
@@ -33,8 +45,7 @@ TriangularBar::~TriangularBar()
     
 }
 
-G4NistManager* nist = G4NistManager::Instance();
-G4Material* barMaterial = nist->FindOrBuildMaterial("G4_PLASTIC_SCINTILLATOR");  
+ 
 
 void TriangularBar::Place(G4LogicalVolume* motherLV,
     const G4ThreeVector& position,

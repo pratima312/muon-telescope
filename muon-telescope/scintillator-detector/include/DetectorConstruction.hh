@@ -5,6 +5,7 @@
 #include "globals.hh"
 #include "G4RotationMatrix.hh"
 
+
 // Forward declaration
 class Layer;
 
@@ -17,13 +18,16 @@ public:
     // Mandatory method from base class
     G4VPhysicalVolume* Construct() override;
     G4LogicalVolume* fLogicWorld;
+    //G4LogicalVolume* fScoringVolume = nullptr;
+    // G4LogicalVolume* GetScoringVolume() const { return fScoringVolume; }
+
 
 private:
     // Geometry components
     Layer* fLayer1 = nullptr;
     Layer* fLayer2 = nullptr;
    
-    G4LogicalVolume* fScoringVolume = nullptr;
+   
     
 };
 

@@ -41,14 +41,14 @@ void Layer::Place(G4LogicalVolume* motherLV,
 
     
     for (int n = 0; n<3; ++n){
-    G4double zLayer =  n * layerSpacing;
+    G4double zLayer = n * layerSpacing;
     for (int i = 0; i < 16; ++i) {
                 fTriangularBar = new TriangularBar(barMaterial,
                                                    33,    // Width
                                                    500,   // Height
                                                    17 );  // Length
         
-                G4ThreeVector barPos(i*33*mm, 0*mm, zLayer);
+                G4ThreeVector barPos((-250*mm + i*33*mm), 0*mm, -150*mm + zLayer);
                 
                 fTriangularBar->Place(motherLV, barPos, rot1);
 
@@ -68,7 +68,7 @@ void Layer::Place(G4LogicalVolume* motherLV,
                                                 500,   // Height
                                                 17 );  // Length
         
-                G4ThreeVector barPos(247.5*mm, -250*mm + i*33*mm, zLayer);
+                G4ThreeVector barPos((-250*mm + 247.5*mm), -250*mm + i*33*mm, -150*mm + zLayer);
                 
 
                 fTriangularBar->Place(motherLV, barPos, rot2);
@@ -98,7 +98,7 @@ void Layer::Place(G4LogicalVolume* motherLV,
                                                     500,   // Height
                                                     17 );  // Length
         
-                G4ThreeVector barPos(-16.5*mm+i*33*mm, 0*mm, zLayer);
+                G4ThreeVector barPos(-250*mm - 16.5*mm+i*33*mm, 0*mm, -150*mm + zLayer);
     
                 fTriangularBar->Place(motherLV, barPos, rot3);
     
@@ -117,7 +117,7 @@ void Layer::Place(G4LogicalVolume* motherLV,
                                                     500,   // Height
                                                     17 );  // Length
         
-                G4ThreeVector barPos(247.5*mm, -266.5*mm + i*33*mm, zLayer);
+                G4ThreeVector barPos(-250*mm + 247.5*mm, -266.5*mm + i*33*mm, -150*mm + zLayer);
 
             fTriangularBar->Place(motherLV, barPos, rot4);
         

@@ -1,5 +1,6 @@
 #include "DetectorConstruction.hh"
-//#include "ActionInitialization.hh"
+#include "ActionInitialization.hh"
+#include "PrimaryGeneratorAction.hh"
 
 #include "G4RunManagerFactory.hh"
 #include "G4SteppingVerbose.hh"
@@ -28,7 +29,7 @@ int main(int argc, char** argv)
     // Set up mandatory user initialization classes
     runManager->SetUserInitialization(new DetectorConstruction());
     runManager->SetUserInitialization(new QBBC());  // Your physics
-    
+    runManager->SetUserInitialization(new ActionInitialization());
     
     
     // Initialize G4 kernel
@@ -56,4 +57,6 @@ int main(int argc, char** argv)
     // Clean up
     delete visManager;
     delete runManager;
+
+    return 0;
 }

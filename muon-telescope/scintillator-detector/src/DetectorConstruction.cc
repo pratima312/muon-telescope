@@ -13,7 +13,7 @@
 #include "G4RotationMatrix.hh"
 
 DetectorConstruction::DetectorConstruction()
- : G4VUserDetectorConstruction(),
+ : G4VUserDetectorConstruction(), 
    fLayer1(nullptr) , 
    fLayer2(nullptr) 
 {
@@ -34,7 +34,8 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
     // Materials
     G4Material* worldMaterial = nist->FindOrBuildMaterial("G4_AIR");
-    G4Material* barMaterial   = nist->FindOrBuildMaterial("G4_PLASTIC_SCINTILLATOR"); // example
+    G4Material* barMaterial   = nist->FindOrBuildMaterial("G4_PLASTIC_SC_VINYLTOLUENE"); 
+
 
     // Overlap checking flag
     G4bool checkOverlaps = true;
