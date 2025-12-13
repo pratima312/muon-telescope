@@ -19,18 +19,11 @@ TriangularBar::TriangularBar(G4Material* material,
 
       
 {
-    // Initialize pointers
-    // fSolid = nullptr;
-    // fLogicalVolume = nullptr;
-    // fPhysicalVolume = nullptr; 
 
     if (!fMaterial) {
         G4NistManager* nist = G4NistManager::Instance();
-        fMaterial = nist->FindOrBuildMaterial("G4_WATER");
+        fMaterial = nist->FindOrBuildMaterial("G4_PLASTIC_SC_VINYLTOLUENE");
     }
-
-    // G4NistManager* nist = G4NistManager::Instance();
-    // G4Material* barMaterial = nist->FindOrBuildMaterial("G4_WATER"); 
     
     fSolid = new G4Trd("TriangularBarSolid",
                        fWidth/2*mm,        // Half X at -z (16.5 mm)

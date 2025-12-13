@@ -1,2 +1,31 @@
-boolean/build
-box/build
+# ========================
+# Build directories
+# ========================
+build/
+scintillator-detector/build/
+
+# ========================
+# CMake generated files
+# ========================
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# ========================
+# Compiled objects
+# ========================
+*.o
+*.o.d
+*.so
+*.a
+
+# ========================
+# Executables
+# ========================
+exampleB1
+
+# ========================
+# Output / data files
+# ========================
+*.csv
