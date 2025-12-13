@@ -100,8 +100,8 @@ PrimaryGeneratorAction::PrimaryGeneratorAction()
     }
     in.close();
 
-    G4cout << "PrimaryGeneratorAction: loaded " << f_x.size()
-           << " rows from muon_100.csv (header_skipped=" << (header_skipped? "yes":"no") << ")\n";
+    // G4cout << "PrimaryGeneratorAction: loaded " << f_x.size()
+    //        << " rows from muon_100.csv (header_skipped=" << (header_skipped? "yes":"no") << ")\n";
 }
 
 PrimaryGeneratorAction::~PrimaryGeneratorAction()

@@ -13,21 +13,18 @@ class G4ParticleGun;
 class G4Event;
 class G4Box;
 
-/// The primary generator action class with particle gun.
 class PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
 {
 public:
     PrimaryGeneratorAction();
     ~PrimaryGeneratorAction() override;
 
-    // override virtual from base
     void GeneratePrimaries(G4Event* event) override;
 
 private:
     G4ParticleGun* fParticleGun;
     G4double fBeamRadius;
 
-    // Member vectors to store CSV columns (populated in constructor)
     std::vector<double> f_x;
     std::vector<double> f_y;
     std::vector<double> f_z;

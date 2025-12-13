@@ -3,6 +3,7 @@
 #include "Layer.hh"
 #include "TriangularBar.hh"
 
+#include "TriangularBarSD.hh"
 
 #include "G4NistManager.hh"
 #include "G4Box.hh"
@@ -11,6 +12,15 @@
 #include "G4SystemOfUnits.hh"
 #include "G4VisAttributes.hh"
 #include "G4RotationMatrix.hh"
+#include "G4SDManager.hh"
+#include "G4LogicalVolumeStore.hh"
+#include "G4GlobalMagFieldMessenger.hh"
+#include "G4AutoDelete.hh"
+#include "G4String.hh"
+
+#include "G4UserLimits.hh"
+
+class TriangularBarSD;
 
 DetectorConstruction::DetectorConstruction()
  : G4VUserDetectorConstruction(), 
@@ -65,8 +75,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
         0,
         checkOverlaps
     );
-    
-    
+
     fLayer1 = new Layer();
     fLayer2 = new Layer();
 
@@ -80,8 +89,34 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     fLayer1->Place(logicWorld, layer1Pos, layer1Rot);
     fLayer2->Place(logicWorld, layer2Pos, layer2Rot);
 
-  
-
-
     return physWorld;
 }
+
+
+void DetectorConstruction::ConstructSDandField()
+{
+  // Sensitive detectors
+
+  auto* tribarSD = new TriangularBarSD("TriangularBarSD", "TrackerHitsCollection");
+  G4SDManager::GetSDMpointer()->AddNewDetector(tribarSD);
+
+  SetSensitiveDetector("TriangularBarLV", tribarSD, true);
+
+  G4ThreeVector fieldValue = G4ThreeVector();
+}
+
+
+
+void DetectorConstruction::SetMaxStep(G4double maxStep)
+{
+  if ((fStepLimit) && (maxStep > 0.)) fStepLimit->SetMaxAllowedStep(maxStep);
+}
+
+
+void DetectorConstruction::SetCheckOverlaps(G4bool checkOverlaps)
+{
+  fCheckOverlaps = checkOverlaps;
+}
+
+
+

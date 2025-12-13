@@ -12,6 +12,10 @@
 #include "G4Material.hh"
 #include "G4VSolid.hh"
 
+#include "G4String.hh"
+
+#include <array>
+
 
 Layer::Layer()   
     {
@@ -24,109 +28,89 @@ Layer::~Layer()
 }
 
 void Layer::Place(G4LogicalVolume* motherLV,
-    const G4ThreeVector& pos,
-    G4RotationMatrix* rot)
-
-{
+    const G4ThreeVector& /*pos*/,
+    G4RotationMatrix* /*rot*/)
 
     
+{
     G4Material* barMaterial = G4NistManager::Instance()->FindOrBuildMaterial("G4_PLASTIC_SCINTILLATOR");
 
-    G4RotationMatrix* rot1 = new G4RotationMatrix();
-    
-    G4RotationMatrix* rot2 = new G4RotationMatrix();
-    rot2->rotateZ(90*deg);
+    G4RotationMatrix* rot1 = new G4RotationMatrix();           
+    G4RotationMatrix* rot2 = new G4RotationMatrix(); rot2->rotateZ(90*deg); 
+    G4RotationMatrix* rot3 = new G4RotationMatrix(); rot3->rotateY(180*deg);
+    G4RotationMatrix* rot4 = new G4RotationMatrix(); rot4->rotateZ(90*deg); rot4->rotateY(180*deg);
 
     G4double layerSpacing = 150*mm;
 
-    
-    for (int n = 0; n<3; ++n){
-    G4double zLayer = n * layerSpacing;
-    for (int i = 0; i < 16; ++i) {
-                fTriangularBar = new TriangularBar(barMaterial,
-                                                   33,    // Width
-                                                   500,   // Height
-                                                   17 );  // Length
-        
-                G4ThreeVector barPos((-250*mm + i*33*mm), 0*mm, -150*mm + zLayer);
-                
-                fTriangularBar->Place(motherLV, barPos, rot1);
+    TriangularBar* barGreen  = new TriangularBar(barMaterial, 33, 500, 17, nullptr);
+    TriangularBar* barYellow = new TriangularBar(barMaterial, 33, 500, 17, nullptr);
 
-                G4VisAttributes* visAtt =
-                    new G4VisAttributes(G4Colour(0.0, 1.0, 0.0)); // green
+
+    bool greenLVcolored = false;
+    bool yellowLVcolored = false;
+
+    const std::array<G4String,3> layerPrefix = {"b","m","t"};      
+    const std::array<G4String,4> subPrefix = {"bg","by","tg","ty"}; 
+
+    G4int globalCopy = 0; 
+
+    for (G4int layerIdx = 0; layerIdx < 3; ++layerIdx) {
+        G4double zLayer = layerIdx * layerSpacing;
+        for (G4int i = 0; i < 16; ++i) {
+            G4String pvName = layerPrefix[layerIdx] + subPrefix[0] + std::to_string(i + 1); 
+            G4ThreeVector barPos((-250*mm + i*33*mm), 0*mm, -150*mm + zLayer);
+            barGreen->Place(motherLV, barPos, rot1, pvName, globalCopy);
+
+            if (!greenLVcolored) {
+                G4VisAttributes* visAtt = new G4VisAttributes(G4Colour(0.0, 1.0, 0.0)); 
                 visAtt->SetForceSolid(true);
-                fTriangularBar->GetLogicalVolume()->SetVisAttributes(visAtt);
+                barGreen->GetLogicalVolume()->SetVisAttributes(visAtt);
+                greenLVcolored = true;
             }
+            ++globalCopy;
         }
+    }
 
-        
-    for (int n = 0; n<3; ++n){
-    G4double zLayer = -16.5*mm + n * layerSpacing;
-    for (int i = 0; i < 16; ++i) {
-                fTriangularBar = new TriangularBar(barMaterial,
-                                                33,    // Width
-                                                500,   // Height
-                                                17 );  // Length
-        
-                G4ThreeVector barPos((-250*mm + 247.5*mm), -250*mm + i*33*mm, -150*mm + zLayer);
-                
+    for (G4int layerIdx = 0; layerIdx < 3; ++layerIdx) {
+        G4double zLayer = -16.5*mm + layerIdx * layerSpacing;
+        for (G4int i = 0; i < 16; ++i) {
+            G4String pvName = layerPrefix[layerIdx] + subPrefix[0] + std::to_string(i + 1); 
+            pvName = layerPrefix[layerIdx] + subPrefix[1] + std::to_string(i + 1); 
+            G4ThreeVector barPos((-250*mm + 247.5*mm), -250*mm + i*33*mm, -150*mm + zLayer);
+            barGreen->Place(motherLV, barPos, rot2, pvName, globalCopy);
 
-                fTriangularBar->Place(motherLV, barPos, rot2);
-        
-                G4VisAttributes* visAtt =
-                    new G4VisAttributes(G4Colour(0.0, 1.0, 0.0)); // green
+          
+            ++globalCopy;
+        }
+    }
+
+    for (G4int layerIdx = 0; layerIdx < 3; ++layerIdx) {
+        G4double zLayer = layerIdx * layerSpacing;
+        for (G4int i = 0; i < 16; ++i) {
+            G4String pvName = layerPrefix[layerIdx] + subPrefix[2] + std::to_string(i + 1); 
+            G4ThreeVector barPos(-250*mm - 16.5*mm + i*33*mm, 0*mm, -150*mm + zLayer);
+            barYellow->Place(motherLV, barPos, rot3, pvName, globalCopy);
+
+            if (!yellowLVcolored) {
+                G4VisAttributes* visAtt = new G4VisAttributes(G4Colour(1.0, 1.0, 0.0)); 
                 visAtt->SetForceSolid(true);
-                fTriangularBar->GetLogicalVolume()->SetVisAttributes(visAtt);
-                }
+                barYellow->GetLogicalVolume()->SetVisAttributes(visAtt);
+                yellowLVcolored = true;
             }
+            ++globalCopy;
+        }
+    }
 
+    for (G4int layerIdx = 0; layerIdx < 3; ++layerIdx) {
+        G4double zLayer = -16.5*mm + layerIdx * layerSpacing;
+        for (G4int i = 0; i < 16; ++i) {
+            G4String pvName = layerPrefix[layerIdx] + subPrefix[3] + std::to_string(i + 1); 
+            G4ThreeVector barPos(-250*mm + 247.5*mm, -266.5*mm + i*33*mm, -150*mm + zLayer);
+            barYellow->Place(motherLV, barPos, rot4, pvName, globalCopy);
 
-    G4RotationMatrix* rot3 = new G4RotationMatrix();
-    rot3->rotateY(180*deg);
+            ++globalCopy;
+        }
+    }
 
-    G4RotationMatrix* rot4 = new G4RotationMatrix();
-    rot4->rotateZ(90*deg);
-    rot4->rotateY(180*deg);
-
-
-
-    for (int n = 0; n<3; ++n){
-    G4double zLayer =  n * layerSpacing;
-    for (int i = 0; i < 16; ++i) {
-                fTriangularBar = new TriangularBar(barMaterial,
-                                                    33,    // Width
-                                                    500,   // Height
-                                                    17 );  // Length
-        
-                G4ThreeVector barPos(-250*mm - 16.5*mm+i*33*mm, 0*mm, -150*mm + zLayer);
-    
-                fTriangularBar->Place(motherLV, barPos, rot3);
-    
-                G4VisAttributes* visAtt =
-                    new G4VisAttributes(G4Colour(1.0, 1.0, 0.0)); // yellow
-                visAtt->SetForceSolid(true);
-                fTriangularBar->GetLogicalVolume()->SetVisAttributes(visAtt);
-                }
-            }
-       
-    for (int n = 0; n<3; ++n){
-    G4double zLayer = -16.5*mm + n * layerSpacing;
-    for (int i = 0; i < 16; ++i) {
-                fTriangularBar = new TriangularBar(barMaterial,
-                                                    33,    // Width
-                                                    500,   // Height
-                                                    17 );  // Length
-        
-                G4ThreeVector barPos(-250*mm + 247.5*mm, -266.5*mm + i*33*mm, -150*mm + zLayer);
-
-            fTriangularBar->Place(motherLV, barPos, rot4);
-        
-                G4VisAttributes* visAtt =
-                    new G4VisAttributes(G4Colour(1.0, 1.0, 0.0)); // yellow
-                visAtt->SetForceSolid(true);
-                fTriangularBar->GetLogicalVolume()->SetVisAttributes(visAtt);
-                }
-            }
-
-    
+   
 }
