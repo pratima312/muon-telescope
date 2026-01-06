@@ -55,8 +55,6 @@ void Layer::Place(G4LogicalVolume* motherLV,
     G4int globalCopy = 0; 
  
     const G4double clearance = 0.1*mm;
-   //x = -250*mm + i*(33*mm + clearance);
-
 
 static bool geometryBuilt1 = false; 
 static bool geometryBuilt2 = false;
