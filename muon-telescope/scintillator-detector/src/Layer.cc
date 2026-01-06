@@ -33,7 +33,7 @@ void Layer::Place(G4LogicalVolume* motherLV,
 
     
 {
-    G4Material* barMaterial = G4NistManager::Instance()->FindOrBuildMaterial("G4_PLASTIC_SCINTILLATOR");
+    G4Material* barMaterial = G4NistManager::Instance()->FindOrBuildMaterial("G4_PLASTIC_SC_VINYLTOLUENE");
 
     G4RotationMatrix* rot1 = new G4RotationMatrix();           
     G4RotationMatrix* rot2 = new G4RotationMatrix(); rot2->rotateZ(90*deg); 
