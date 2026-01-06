@@ -42,8 +42,8 @@ void Layer::Place(G4LogicalVolume* motherLV,
 
     G4double layerSpacing = 150*mm;
 
-    TriangularBar* barGreen  = new TriangularBar(barMaterial, 33, 500, 17, nullptr);
-    TriangularBar* barYellow = new TriangularBar(barMaterial, 33, 500, 17, nullptr);
+    TriangularBar* barGreen  = new TriangularBar(barMaterial, 33, 528, 17, nullptr);
+    TriangularBar* barYellow = new TriangularBar(barMaterial, 33, 528, 17, nullptr);
 
 
     bool greenLVcolored = false;
@@ -53,12 +53,27 @@ void Layer::Place(G4LogicalVolume* motherLV,
     const std::array<G4String,4> subPrefix = {"bg","by","tg","ty"}; 
 
     G4int globalCopy = 0; 
+ 
+    const G4double clearance = 0.1*mm;
+   //x = -250*mm + i*(33*mm + clearance);
+
+
+static bool geometryBuilt1 = false; 
+static bool geometryBuilt2 = false;
+static bool geometryBuilt3 = false;
+static bool geometryBuilt4 = false;
+
+
+if (!geometryBuilt1) { 
 
     for (G4int layerIdx = 0; layerIdx < 3; ++layerIdx) {
         G4double zLayer = layerIdx * layerSpacing;
+        
         for (G4int i = 0; i < 16; ++i) {
             G4String pvName = layerPrefix[layerIdx] + subPrefix[0] + std::to_string(i + 1); 
-            G4ThreeVector barPos((-250*mm + i*33*mm), 0*mm, -150*mm + zLayer);
+            
+            G4ThreeVector barPos((-250*mm + i*(33*mm + clearance)), 0*mm + clearance, -150*mm + zLayer + clearance);
+            
             barGreen->Place(motherLV, barPos, rot1, pvName, globalCopy);
 
             if (!greenLVcolored) {
@@ -70,25 +85,37 @@ void Layer::Place(G4LogicalVolume* motherLV,
             ++globalCopy;
         }
     }
+    geometryBuilt1 = true; 
+}
 
-    for (G4int layerIdx = 0; layerIdx < 3; ++layerIdx) {
-        G4double zLayer = -16.5*mm + layerIdx * layerSpacing;
-        for (G4int i = 0; i < 16; ++i) {
-            G4String pvName = layerPrefix[layerIdx] + subPrefix[0] + std::to_string(i + 1); 
-            pvName = layerPrefix[layerIdx] + subPrefix[1] + std::to_string(i + 1); 
-            G4ThreeVector barPos((-250*mm + 247.5*mm), -250*mm + i*33*mm, -150*mm + zLayer);
-            barGreen->Place(motherLV, barPos, rot2, pvName, globalCopy);
 
-          
-            ++globalCopy;
+
+    if (!geometryBuilt2) {
+        for (G4int layerIdx = 0; layerIdx < 3; ++layerIdx) {
+            G4double zLayer = -17*mm + layerIdx * layerSpacing;
+            for (G4int i = 0; i < 16; ++i) {
+                G4String pvName = layerPrefix[layerIdx] + subPrefix[2] + std::to_string(i + 1); 
+                G4ThreeVector barPos((-250*mm + 247.5*mm + clearance), -250*mm + i*(33*mm + clearance), -150*mm + zLayer + clearance);
+                barGreen->Place(motherLV, barPos, rot2, pvName, globalCopy);
+
+            
+                ++globalCopy;
+            }
         }
+        geometryBuilt2 = true;
     }
 
+
+
+   if (!geometryBuilt3) {
     for (G4int layerIdx = 0; layerIdx < 3; ++layerIdx) {
         G4double zLayer = layerIdx * layerSpacing;
+        
         for (G4int i = 0; i < 16; ++i) {
-            G4String pvName = layerPrefix[layerIdx] + subPrefix[2] + std::to_string(i + 1); 
-            G4ThreeVector barPos(-250*mm - 16.5*mm + i*33*mm, 0*mm, -150*mm + zLayer);
+            G4String pvName = layerPrefix[layerIdx] + subPrefix[1] + std::to_string(i + 1); 
+            G4double xPos = -250*mm - 16.5*mm - (clearance/2.0) + i*(33*mm + clearance);
+            G4ThreeVector barPos(xPos, 0*mm, -150*mm + zLayer + clearance);
+
             barYellow->Place(motherLV, barPos, rot3, pvName, globalCopy);
 
             if (!yellowLVcolored) {
@@ -100,17 +127,27 @@ void Layer::Place(G4LogicalVolume* motherLV,
             ++globalCopy;
         }
     }
+    geometryBuilt3 = true;
+}
 
+
+if (!geometryBuilt4) {
     for (G4int layerIdx = 0; layerIdx < 3; ++layerIdx) {
-        G4double zLayer = -16.5*mm + layerIdx * layerSpacing;
+        G4double zLayer = -17*mm + layerIdx * layerSpacing;
+        
         for (G4int i = 0; i < 16; ++i) {
             G4String pvName = layerPrefix[layerIdx] + subPrefix[3] + std::to_string(i + 1); 
-            G4ThreeVector barPos(-250*mm + 247.5*mm, -266.5*mm + i*33*mm, -150*mm + zLayer);
+            G4double yPos = -266.5*mm - (clearance/2.0) + i*(33*mm + clearance);
+            G4ThreeVector barPos(-250*mm + 247.5*mm + clearance, 
+                                 yPos, 
+                                 -150*mm + zLayer + clearance);
+                                 
             barYellow->Place(motherLV, barPos, rot4, pvName, globalCopy);
 
             ++globalCopy;
         }
     }
-
+    geometryBuilt4 = true;
+}
    
 }

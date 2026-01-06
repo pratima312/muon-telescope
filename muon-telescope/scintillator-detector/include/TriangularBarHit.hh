@@ -45,7 +45,7 @@ private:
 
   // identification
   G4int fCopyNo = -1;
-  G4String fPVName;
+  G4String fPVName = "";
 };
 
 using TriangularBarHitsCollection = G4THitsCollection<TriangularBarHit>;

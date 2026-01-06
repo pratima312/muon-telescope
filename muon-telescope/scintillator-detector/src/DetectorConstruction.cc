@@ -6,7 +6,7 @@
 #include "TriangularBarSD.hh"
 
 #include "G4NistManager.hh"
-#include "G4Box.hh"
+#include "G4Sphere.hh"    //#include "G4Box.hh"
 #include "G4LogicalVolume.hh"
 #include "G4PVPlacement.hh"
 #include "G4SystemOfUnits.hh"
@@ -50,13 +50,29 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     // Overlap checking flag
     G4bool checkOverlaps = true;
 
-    // World half-dimensions
-    G4double worldX = 300 * mm;
-    G4double worldY = 300 * mm;
-    G4double worldZ = 300 * mm;
+    // World half-dimensions           //for a box world
+    // G4double worldX = 500 * mm;
+    // G4double worldY = 500 * mm;
+    // G4double worldZ = 700 * mm;
+    G4double innerRadius = 0 * m;
+    G4double outerRadius = 0.6 * m;
+    G4double startPhi    = 0 * deg;
+    G4double deltaPhi    = 360 * deg;
+    G4double startTheta  = 0 * deg;
+    G4double deltaTheta  = 180 * deg;
+
+
 
     
-    G4Box* solidWorld = new G4Box("World", worldX, worldY, worldZ);
+    //G4Box* solidWorld = new G4Box("World", worldX, worldY, worldZ);
+    G4Sphere* solidWorld = new G4Sphere("World", 
+                                        innerRadius, 
+                                        outerRadius, 
+                                        startPhi, 
+                                        deltaPhi, 
+                                        startTheta, 
+                                        deltaTheta);
+                                        
     G4LogicalVolume* logicWorld = new G4LogicalVolume(solidWorld, worldMaterial, "World");
 
     
@@ -97,7 +113,7 @@ void DetectorConstruction::ConstructSDandField()
 {
   // Sensitive detectors
 
-  auto* tribarSD = new TriangularBarSD("TriangularBarSD", "TrackerHitsCollection");
+  auto* tribarSD = new TriangularBarSD("TriangularBarSD", "TriangularBarHitsCollection");
   G4SDManager::GetSDMpointer()->AddNewDetector(tribarSD);
 
   SetSensitiveDetector("TriangularBarLV", tribarSD, true);

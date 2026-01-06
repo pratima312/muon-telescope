@@ -19,11 +19,7 @@ public:
    void Place(G4LogicalVolume* motherLV,
               const G4ThreeVector& pos,
               G4RotationMatrix* layerRot = nullptr);
-
-   void Place(G4RotationMatrix* rotation =  nullptr);
-
-
-        
+   
    private:
    G4RotationMatrix* fRotation = nullptr;     
    TriangularBar* fTriangularBar = nullptr;

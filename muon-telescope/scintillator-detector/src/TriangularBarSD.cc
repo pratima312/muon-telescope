@@ -33,7 +33,7 @@ void TriangularBarSD::Initialize(G4HCofThisEvent* hce)
 
 G4bool TriangularBarSD::ProcessHits(G4Step* step, G4TouchableHistory*)
 {
-  //G4cout<<"I am here"<<G4endl;
+  
   G4double edep = step->GetTotalEnergyDeposit();
 
   if (edep == 0.) return false;

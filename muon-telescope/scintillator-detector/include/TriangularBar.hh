@@ -30,7 +30,6 @@ public:
     
     
     G4LogicalVolume* GetLogicalVolume() const { return fLogicalVolume; }
-    G4VPhysicalVolume* GetPhysicalVolume() const { return fPhysicalVolume; }
     G4VSolid* GetSolid() const { return fSolid; }
     G4RotationMatrix* GetRotation() const { return fRotation; }
 
@@ -50,7 +49,6 @@ private:
     
     G4VSolid* fSolid;
     G4LogicalVolume* fLogicalVolume;
-    G4VPhysicalVolume* fPhysicalVolume;
     
 };
 

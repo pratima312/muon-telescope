@@ -15,7 +15,7 @@ TriangularBar::TriangularBar(G4Material* material,
                              G4RotationMatrix* rotation)
                              
     : fWidth(width), fHeight(height), fLength(length), fMaterial(material), fRotation(rotation),
-      fSolid(nullptr), fLogicalVolume(nullptr), fPhysicalVolume(nullptr)
+      fSolid(nullptr), fLogicalVolume(nullptr) //, fPhysicalVolume(nullptr)
 
       
 {
@@ -58,16 +58,15 @@ void TriangularBar::Place(G4LogicalVolume* motherLV,
         
     }
     
-    fPhysicalVolume = new G4PVPlacement(rotation,   // Rotation (use stored member)
-                                    position,     // Position
-                                    fLogicalVolume, //logical volume
-                                    pvName,       
-                                    motherLV,
-                                    false,
-                                    copyNo,       // use caller-provided copy number
-                                    true);
-
-
+    // Place the physical volume
+ new G4PVPlacement(rotation,   // Rotation (use stored member)
+                    position,     // Position
+                    fLogicalVolume, //logical volume
+                    pvName,       
+                    motherLV,
+                    false,
+                    copyNo,       // use caller-provided copy number
+                    true);
                                     
                                     
 }

@@ -27,7 +27,7 @@ PrimaryGeneratorAction::PrimaryGeneratorAction()
     G4ParticleDefinition* muplus = pTable->FindParticle("mu+");
     if (muplus) fParticleGun->SetParticleDefinition(muplus);
 
-    std::ifstream in("muon_1000.csv");  
+    std::ifstream in("muon_100_plane.csv");  
     
     auto trim = [](std::string &s){
         const char* ws = " \t\n\r\f\v";
@@ -100,8 +100,6 @@ PrimaryGeneratorAction::PrimaryGeneratorAction()
     }
     in.close();
 
-    // G4cout << "PrimaryGeneratorAction: loaded " << f_x.size()
-    //        << " rows from muon_100.csv (header_skipped=" << (header_skipped? "yes":"no") << ")\n";
 }
 
 PrimaryGeneratorAction::~PrimaryGeneratorAction()
@@ -124,17 +122,23 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* event)
     double x = f_x[idx];
     double y = f_y[idx];
     double z = f_z[idx];
-    fParticleGun->SetParticlePosition(G4ThreeVector(x * mm, y * mm, z * mm));
+    fParticleGun->SetParticlePosition(G4ThreeVector(x * m, y * m, z * m));
 
     double px = f_px[idx];
     double py = f_py[idx];
     double pz = f_pz[idx];
-    double p = std::sqrt(px*px + py*py + pz*pz);
-    fParticleGun->SetParticleMomentumDirection( G4ThreeVector(px, py, pz).unit() );
+
+    G4ThreeVector mom(px * keV, py * keV, pz * keV);
+
+    fParticleGun->SetParticleMomentumDirection(mom.unit());
+
+    //double p = std::sqrt(px*px + py*py + pz*pz);
+    //fParticleGun->SetParticleMomentumDirection( G4ThreeVector(px, py, pz).unit() );
 
 
     const double muonMass = 105.6583755; // MeV/c^2
-    double E_total = std::sqrt(p*p + muonMass*muonMass); // MeV
+   // double E_total = std::sqrt(p*p + muonMass*muonMass); // MeV
+    double E_total = std::sqrt(mom.mag2() + muonMass*muonMass); // MeV
     double kin = E_total - muonMass; // MeV
     
     fParticleGun->SetParticleEnergy(kin * MeV);
