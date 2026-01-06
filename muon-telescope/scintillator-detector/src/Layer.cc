@@ -33,7 +33,7 @@ void Layer::Place(G4LogicalVolume* motherLV,
 
     
 {
-    G4Material* barMaterial = G4NistManager::Instance()->FindOrBuildMaterial("G4_PLASTIC_SCINTILLATOR");
+    G4Material* barMaterial = G4NistManager::Instance()->FindOrBuildMaterial("G4_PLASTIC_SC_VINYLTOLUENE");
 
     G4RotationMatrix* rot1 = new G4RotationMatrix();           
     G4RotationMatrix* rot2 = new G4RotationMatrix(); rot2->rotateZ(90*deg); 
@@ -55,8 +55,6 @@ void Layer::Place(G4LogicalVolume* motherLV,
     G4int globalCopy = 0; 
  
     const G4double clearance = 0.1*mm;
-   //x = -250*mm + i*(33*mm + clearance);
-
 
 static bool geometryBuilt1 = false; 
 static bool geometryBuilt2 = false;
