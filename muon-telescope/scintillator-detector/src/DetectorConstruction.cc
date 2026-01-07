@@ -46,7 +46,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     G4bool checkOverlaps = true;
 
     G4double innerRadius = 0 * m;
-    G4double outerRadius = 0.6 * m;
+    G4double outerRadius = 0.7 * m;
     G4double startPhi    = 0 * deg;
     G4double deltaPhi    = 360 * deg;
     G4double startTheta  = 0 * deg;

@@ -19,20 +19,26 @@
 #include <cmath>
 
 PrimaryGeneratorAction::PrimaryGeneratorAction()
- : fParticleGun(nullptr)
+    : fParticleGun(nullptr)
 {
     fParticleGun = new G4ParticleGun(1);
 
-    G4ParticleTable* pTable = G4ParticleTable::GetParticleTable();
-    G4ParticleDefinition* muplus = pTable->FindParticle("mu+");
-    if (muplus) fParticleGun->SetParticleDefinition(muplus);
+    G4ParticleTable *pTable = G4ParticleTable::GetParticleTable();
+    G4ParticleDefinition *muplus = pTable->FindParticle("mu+");
+    if (muplus)
+        fParticleGun->SetParticleDefinition(muplus);
 
-    std::ifstream in("muon_100_plane.csv");  
-    
-    auto trim = [](std::string &s){
-        const char* ws = " \t\n\r\f\v";
+    std::ifstream in("muon_1k_hsph.csv");
+
+    auto trim = [](std::string &s)
+    {
+        const char *ws = " \t\n\r\f\v";
         size_t a = s.find_first_not_of(ws);
-        if (a == std::string::npos) { s.clear(); return; }
+        if (a == std::string::npos)
+        {
+            s.clear();
+            return;
+        }
         size_t b = s.find_last_not_of(ws);
         s = s.substr(a, b - a + 1);
     };
@@ -40,54 +46,88 @@ PrimaryGeneratorAction::PrimaryGeneratorAction()
     std::streampos pos_before = in.tellg();
     std::string firstline;
     bool header_skipped = false;
-    while (std::getline(in, firstline)) {
-        if (firstline.find_first_not_of(" \t\r\n") == std::string::npos) { pos_before = in.tellg(); continue; }
+    while (std::getline(in, firstline))
+    {
+        if (firstline.find_first_not_of(" \t\r\n") == std::string::npos)
+        {
+            pos_before = in.tellg();
+            continue;
+        }
         bool hasLetter = false;
-        for (char c : firstline) { if (std::isalpha(static_cast<unsigned char>(c))) { hasLetter = true; break; } }
-        if (!hasLetter) {
-           
+        for (char c : firstline)
+        {
+            if (std::isalpha(static_cast<unsigned char>(c)))
+            {
+                hasLetter = true;
+                break;
+            }
+        }
+        if (!hasLetter)
+        {
+
             in.seekg(pos_before);
-        } else {
-            
+        }
+        else
+        {
+
             header_skipped = true;
         }
         break;
     }
 
-   
     std::string line;
     size_t lineno = 0;
-    while (std::getline(in, line)) {
+    while (std::getline(in, line))
+    {
         lineno++;
-        if (line.empty()) continue;
-        if (!line.empty() && line.back() == '\r') line.pop_back();
+        if (line.empty())
+            continue;
+        if (!line.empty() && line.back() == '\r')
+            line.pop_back();
 
         std::stringstream ss(line);
-        auto read_double = [&](double &out)->bool{
+        auto read_double = [&](double &out) -> bool
+        {
             std::string tok;
-            if (!std::getline(ss, tok, ',')) return false;
+            if (!std::getline(ss, tok, ','))
+                return false;
             trim(tok);
-            if (tok.empty()) return false;
-            try {
-                size_t idx=0;
+            if (tok.empty())
+                return false;
+            try
+            {
+                size_t idx = 0;
                 out = std::stod(tok, &idx);
-                if (idx != tok.size()) return false;
-            } catch(...) { return false; }
+                if (idx != tok.size())
+                    return false;
+            }
+            catch (...)
+            {
+                return false;
+            }
             return true;
         };
 
-        double v1,v2,v3,v4,v5,v6,v7,v8,v9;
-        if (!read_double(v1)) continue;
-        if (!read_double(v2)) continue;
-        if (!read_double(v3)) continue;
-        if (!read_double(v4)) continue;
-        if (!read_double(v5)) continue;
-        if (!read_double(v6)) continue;
-        if (!read_double(v7)) continue;
-        if (!read_double(v8)) continue;
-        if (!read_double(v9)) continue;
+        double v1, v2, v3, v4, v5, v6, v7, v8, v9;
+        if (!read_double(v1))
+            continue;
+        if (!read_double(v2))
+            continue;
+        if (!read_double(v3))
+            continue;
+        if (!read_double(v4))
+            continue;
+        if (!read_double(v5))
+            continue;
+        if (!read_double(v6))
+            continue;
+        if (!read_double(v7))
+            continue;
+        if (!read_double(v8))
+            continue;
+        if (!read_double(v9))
+            continue;
 
-  
         f_x.push_back(v1);
         f_y.push_back(v2);
         f_z.push_back(v3);
@@ -99,7 +139,6 @@ PrimaryGeneratorAction::PrimaryGeneratorAction()
         f_charge.push_back(v9);
     }
     in.close();
-
 }
 
 PrimaryGeneratorAction::~PrimaryGeneratorAction()
@@ -107,18 +146,18 @@ PrimaryGeneratorAction::~PrimaryGeneratorAction()
     delete fParticleGun;
 }
 
-void PrimaryGeneratorAction::GeneratePrimaries(G4Event* event)
+void PrimaryGeneratorAction::GeneratePrimaries(G4Event *event)
 {
     G4int evID = event->GetEventID();
     const size_t n = f_x.size();
 
-    if (static_cast<size_t>(evID) >= n) {
-        G4cerr << "PrimaryGeneratorAction: event " << evID << " >= CSV rows ("<< n <<"), skipping.\n";
+    if (static_cast<size_t>(evID) >= n)
+    {
+        G4cerr << "PrimaryGeneratorAction: event " << evID << " >= CSV rows (" << n << "), skipping.\n";
         return;
     }
     size_t idx = evID % n;
 
-    
     double x = f_x[idx];
     double y = f_y[idx];
     double z = f_z[idx];
@@ -128,26 +167,29 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* event)
     double py = f_py[idx];
     double pz = f_pz[idx];
 
-    G4ThreeVector mom(px * keV, py * keV, pz * keV);
+    G4ThreeVector mom(px * GeV, py * GeV, pz * GeV);
 
     fParticleGun->SetParticleMomentumDirection(mom.unit());
 
-    //double p = std::sqrt(px*px + py*py + pz*pz);
-    //fParticleGun->SetParticleMomentumDirection( G4ThreeVector(px, py, pz).unit() );
+    // double p = std::sqrt(px*px + py*py + pz*pz);
+    // fParticleGun->SetParticleMomentumDirection( G4ThreeVector(px, py, pz).unit() );
 
+    const double muonMass = 105.6583755;                          // MeV/c^2
+                                                                  // double E_total = std::sqrt(p*p + muonMass*muonMass); // MeV
+    double E_total = std::sqrt(mom.mag2() + muonMass * muonMass); // MeV
+    double kin = E_total - muonMass;                              // MeV
 
-    const double muonMass = 105.6583755; // MeV/c^2
-   // double E_total = std::sqrt(p*p + muonMass*muonMass); // MeV
-    double E_total = std::sqrt(mom.mag2() + muonMass*muonMass); // MeV
-    double kin = E_total - muonMass; // MeV
-    
     fParticleGun->SetParticleEnergy(kin * MeV);
 
-    if (!f_charge.empty()) {
-        if (f_charge[idx] < 0) {
+    if (!f_charge.empty())
+    {
+        if (f_charge[idx] < 0)
+        {
             fParticleGun->SetParticleDefinition(
                 G4ParticleTable::GetParticleTable()->FindParticle("mu-"));
-        } else {
+        }
+        else
+        {
             fParticleGun->SetParticleDefinition(
                 G4ParticleTable::GetParticleTable()->FindParticle("mu+"));
         }

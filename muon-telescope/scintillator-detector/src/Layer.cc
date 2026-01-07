@@ -50,11 +50,12 @@ void Layer::Place(G4LogicalVolume* motherLV,
     bool yellowLVcolored = false;
 
     const std::array<G4String,3> layerPrefix = {"b","m","t"};      
-    const std::array<G4String,4> subPrefix = {"bg","by","tg","ty"}; 
+    const std::array<G4String,4> subPrefix = {"tg","ty","bg","by"}; 
+ 
 
     G4int globalCopy = 0; 
  
-    const G4double clearance = 0.1*mm;
+    const G4double clearance = 0*mm;
 
 static bool geometryBuilt1 = false; 
 static bool geometryBuilt2 = false;
