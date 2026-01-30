@@ -6,29 +6,65 @@
 #include "G4RunManager.hh"
 #include "G4SDManager.hh"
 #include "G4HCofThisEvent.hh"
+#include "G4SystemOfUnits.hh"
 
+#include <cmath>
 #include <fstream>
 
-// CSV file created once globally
-static std::ofstream hitCSV("hits_1k_hspr.csv");
-
 EventAction::EventAction(RunAction* runAction)
-: fRunAction(runAction)
+: fRunAction(runAction),
+  fEdep(0.)
 {
-    if (hitCSV.is_open())
-    {
-        hitCSV << "EventID,TrackID,CopyNo,PVName,Edep,PosX,PosY,PosZ\n";
-    }
+    
 }
 
 EventAction::~EventAction()
 {
-    if (hitCSV.is_open()) hitCSV.close();
+
 }
 
-void EventAction::BeginOfEventAction(const G4Event*)
+// void EventAction::BeginOfEventAction(const G4Event*)
+// {
+//     fEdep = 0.;
+//     fMCTruthHits.clear();
+// }
+
+void EventAction::BeginOfEventAction(const G4Event* event)
 {
     fEdep = 0.;
+
+    const G4PrimaryVertex* vtx = event->GetPrimaryVertex(0);
+    if (!vtx) return;
+
+    const G4PrimaryParticle* pp = vtx->GetPrimary();
+    if (!pp) return;
+
+    G4int evtID   = event->GetEventID();
+    G4int trackID = 1; // Primary track always ID=1
+     G4int pdg     = pp->GetPDGcode();
+
+    double px = pp->GetPx() ;
+    double py = pp->GetPy() ;
+    double pz = pp->GetPz();
+    double p = std::sqrt(px*px + py*py + pz*pz);
+    if (p <= 0.) return; 
+
+
+    double theta = std::acos(pz / p); 
+    double phi   = std::atan2(py, px);
+
+    G4ThreeVector pos = vtx->GetPosition();
+    double x = pos.x() ;
+    double y = pos.y() ;
+    double z = pos.z() ;
+
+    fRunAction->truthCSV
+        << evtID << ","
+        << trackID << ","
+        << px << "," << py << "," << pz << "," << p << ","
+        << theta << "," << phi << ","
+        << pos.x() << "," << pos.y() << "," << pos.z()
+        << "\n";
 }
 
 void EventAction::EndOfEventAction(const G4Event* event)
@@ -55,22 +91,17 @@ void EventAction::EndOfEventAction(const G4Event* event)
     for (G4int i = 0; i < nHits; i++)
     {
         auto* hit = (*hits)[i];
-
-        if (hitCSV.is_open())
-        {
-            hitCSV << evtID             << ","
-                   << hit->GetTrackID() << ","
-                   << hit->GetCopyNo()  << ","
-                   << hit->GetPVName()  << ","
-                   << hit->GetEdep()    << ","
-                   << hit->GetPos().x() << ","
-                   << hit->GetPos().y() << ","
-                   << hit->GetPos().z() << "\n";
-        }
+ 
+        fRunAction->hitCSV
+            << evtID << ","
+            << hit->GetTrackID() << ","
+            << hit->GetPDG() << ","
+            << hit->GetCopyNo() << ","
+            << hit->GetPVName() << ","
+            << hit->GetEdep() << ","
+            << hit->GetPos().x() << ","
+            << hit->GetPos().y() << ","
+            << hit->GetPos().z()
+            << "\n";
     }
 }
-
-
-
-
-

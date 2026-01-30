@@ -7,6 +7,7 @@
 #include "G4TouchableHistory.hh"
 #include "G4VVisManager.hh"
 #include "G4ios.hh"
+#include "G4Track.hh"
 
 TriangularBarSD::TriangularBarSD(const G4String& name, const G4String& hitsCollectionName)
   : G4VSensitiveDetector(name)
@@ -44,12 +45,15 @@ G4bool TriangularBarSD::ProcessHits(G4Step* step, G4TouchableHistory*)
   newHit->SetEdep(edep);
   newHit->SetPos(step->GetPostStepPoint()->GetPosition());
 
-
   G4int copyNo = step->GetPreStepPoint()->GetTouchableHandle()->GetCopyNumber();
   newHit->SetCopyNo(copyNo);
 
   G4String pvName = step->GetPreStepPoint()->GetTouchableHandle()->GetVolume()->GetName();
   newHit->SetPVName(pvName);
+
+  G4int pdg =
+  step->GetTrack()->GetParticleDefinition()->GetPDGEncoding();
+  newHit->SetPDG(pdg);
 
   fHitsCollection->insert(newHit);
 

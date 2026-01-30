@@ -6,6 +6,7 @@
 #include "G4RotationMatrix.hh"
 #include "G4String.hh"
 #include "G4Threading.hh"
+#include "G4LogicalVolume.hh"
 
 // Forward declaration
 class Layer;
@@ -28,21 +29,23 @@ public:
 
     G4LogicalVolume* fLogicWorld = nullptr;
 
-void SetMaxStep(G4double maxStep);
-void SetCheckOverlaps(G4bool checkOverlaps);
+    G4LogicalVolume* GetTriangularBarLV() const;
+    void SetMaxStep(G4double maxStep);
+    void SetCheckOverlaps(G4bool checkOverlaps);
 
 private:
     void DefineMaterials();
     G4VPhysicalVolume* DefineVolumes();
 
     
-    Layer* fLayer1 = nullptr;
-    Layer* fLayer2 = nullptr;
+    Layer* fLayer = nullptr;
+    G4LogicalVolume* fTriangularBarLV = nullptr;
+    // Layer* fLayer2 = nullptr;
 
-    G4Material* fTargetMaterial = nullptr;
-    G4LogicalVolume* fLogicTarget = nullptr;
-    G4UserLimits* fStepLimit = nullptr;
-    G4bool fCheckOverlaps = true;
+    // G4Material* fTargetMaterial = nullptr;
+    // G4LogicalVolume* fLogicTarget = nullptr;
+    // G4UserLimits* fStepLimit = nullptr;
+    // G4bool fCheckOverlaps = true;
 
 };
 

@@ -9,6 +9,9 @@
 #include "G4String.hh"
 #include "globals.hh"
 
+#include "G4Track.hh"
+#include "G4ParticleDefinition.hh"
+
 class TriangularBarHit : public G4VHit
 {
 public:
@@ -32,17 +35,21 @@ public:
   void SetCopyNo(G4int c) { fCopyNo = c; }
   void SetPVName(const G4String& n) { fPVName = n; }
 
+  void SetPDG(G4int pdg) { fPDG = pdg; }
+
   G4int GetTrackID() const { return fTrackID; }
   G4double GetEdep() const { return fEdep; }
   G4ThreeVector GetPos() const { return fPos; }
   G4int GetCopyNo() const { return fCopyNo; }
   G4String GetPVName() const { return fPVName; }
+  G4int GetPDG() const { return fPDG; }
 
 private:
   G4int fTrackID = -1;
   G4double fEdep = 0.;
   G4ThreeVector fPos;
 
+  G4int fPDG = 0;
   // identification
   G4int fCopyNo = -1;
   G4String fPVName = "";

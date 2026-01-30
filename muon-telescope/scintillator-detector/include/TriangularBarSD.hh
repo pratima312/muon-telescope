@@ -5,6 +5,7 @@
 
 #include "G4VSensitiveDetector.hh"
 #include "G4String.hh"
+#include "G4Track.hh"
 
 class G4Step;
 class G4HCofThisEvent;

@@ -4,6 +4,7 @@
 #include "G4UserRunAction.hh"
 #include "G4Accumulable.hh"
 #include "globals.hh"
+#include <fstream>
 
 class G4Run;
 
@@ -12,6 +13,9 @@ class RunAction : public G4UserRunAction
   public:
     RunAction();
     ~RunAction() override;
+
+    std::ofstream hitCSV;
+    std::ofstream truthCSV; 
 
     void BeginOfRunAction(const G4Run*) override;
     void   EndOfRunAction(const G4Run*) override;

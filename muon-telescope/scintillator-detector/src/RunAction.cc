@@ -17,11 +17,29 @@ RunAction::RunAction()
   G4AccumulableManager* accumulableManager = G4AccumulableManager::Instance();
   accumulableManager->RegisterAccumulable(fEdep);
   accumulableManager->RegisterAccumulable(fEdep2);
+
+  if (G4Threading::IsMasterThread())
+  {
+    hitCSV.open("hits_10k_plane.csv");
+    truthCSV.open("mc_truth_generator_level_10k_plane.csv");
+
+    if (hitCSV.is_open())
+      hitCSV << "EventID,TrackID,PDG,CopyNo,PVName,Edep,PosX,PosY,PosZ\n";
+
+    if (truthCSV.is_open())
+      truthCSV << "EventID,TrackID,Px,Py,Pz,P,Theta,Phi,X,Y,Z\n";
+  }
 }
 
 
 RunAction::~RunAction()
-{}
+{
+  if (G4Threading::IsMasterThread())
+  {
+    if (hitCSV.is_open())   hitCSV.close();
+    if (truthCSV.is_open()) truthCSV.close();
+  }
+}
 
 
 void RunAction::BeginOfRunAction(const G4Run*)
@@ -57,35 +75,21 @@ void RunAction::EndOfRunAction(const G4Run* run)
      (G4RunManager::GetRunManager()->GetUserPrimaryGeneratorAction());
   G4String runCondition;
 
-  if (IsMaster()) {
+  if (IsMaster()) 
+      {
     G4cout
-     << G4endl
-     << "--------------------End of Global Run-----------------------";
+      << G4endl
+      << "-------------------- End of Run --------------------" << G4endl
+      << " Number of events : " << nofEvents << G4endl
+      << " Total Edep       : " << G4BestUnit(edep, "Energy") << G4endl
+      << " RMS              : " << G4BestUnit(rms,  "Energy") << G4endl
+      << "---------------------------------------------------"
+      << G4endl;
   }
-  else {
-    G4cout
-     << G4endl
-     << "--------------------End of Local Run------------------------";
-  }
-
-  G4cout
-     << G4endl
-     << " The run consists of " << nofEvents << " "<< runCondition
-     << G4endl
-     << " Cumulated dose per run, in scoring volume : "
-     << G4endl
-     << "------------------------------------------------------------"
-     << G4endl
-     << G4endl;
 }
-
 
 void RunAction::AddEdep(G4double edep)
 {
   fEdep  += edep;
   fEdep2 += edep*edep;
 }
-
-
-
-

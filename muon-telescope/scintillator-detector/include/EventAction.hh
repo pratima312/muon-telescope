@@ -3,6 +3,7 @@
 
 #include "G4UserEventAction.hh"
 #include "globals.hh"
+#include "G4ThreeVector.hh"
 
 class RunAction;
 
@@ -24,5 +25,3 @@ class EventAction : public G4UserEventAction
 
 
 #endif
-
-
